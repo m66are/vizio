@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "47861574637",
+    "project_id": "vizio-5bff3",
+    "storage_bucket": "vizio-5bff3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47861574637:android:e5da7f9e6a3928dd5015e4",
+        "android_client_info": {
+          "package_name": "tn.vizio.vizio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47861574637-b9lt7m3jn74govco86eu8q5vh9l64hup.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjUPUA5MGSIp3pycKAia1B6fwzAkNhJYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "47861574637-b9lt7m3jn74govco86eu8q5vh9l64hup.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
