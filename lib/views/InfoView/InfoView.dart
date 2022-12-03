@@ -23,54 +23,47 @@ class _InfoViewState extends State<InfoView> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Card(
-                child: Container(
-                    alignment: Alignment.center,
-                    margin: const EdgeInsets.all(16),
-                    child: Text(
-                      "Angry : ${dataController.angry.value} ",
-                      style: Get.textTheme.bodyText1,
-                    )),
-              ),
-              Card(
-                child: Container(
-                    alignment: Alignment.center,
-                    margin: const EdgeInsets.all(16),
-                    child: Text(
-                      "happy : ${dataController.happy.value} ",
-                      style: Get.textTheme.bodyText1,
-                    )),
-              ),
-              Card(
-                child: Container(
-                    alignment: Alignment.center,
-                    margin: const EdgeInsets.all(16),
-                    child: Text(
-                      "Tired : ${dataController.tired.value} ",
-                      style: Get.textTheme.bodyText1,
-                    )),
+              Obx(
+                () => Column(
+                  children:
+                      List.generate(dataController.feelings.length, (index) {
+                    return Card(
+                      child: Container(
+                          alignment: Alignment.center,
+                          margin: const EdgeInsets.all(16),
+                          child: Text(
+                            "${dataController.feelings[index].nom} : ${dataController.feelings[index].valeur} ",
+                            style: Get.textTheme.bodyText1,
+                          )),
+                    );
+                  }),
+                ),
               ),
               const Divider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Card(
-                    child: Container(
-                        alignment: Alignment.center,
-                        margin: const EdgeInsets.all(16),
-                        child: Text(
-                          "Concentrées : ${dataController.cons.value} ",
-                          style: Get.textTheme.bodyText1,
-                        )),
+                  Flexible(
+                    child: Card(
+                      child: Container(
+                          alignment: Alignment.center,
+                          margin: const EdgeInsets.all(10),
+                          child: Text(
+                            "Concentrées : ${dataController.posSum.value} ",
+                            style: Get.textTheme.bodyText1,
+                          )),
+                    ),
                   ),
-                  Card(
-                    child: Container(
-                        alignment: Alignment.center,
-                        margin: const EdgeInsets.all(16),
-                        child: Text(
-                          "Perturbées : ${dataController.noncons.value} ",
-                          style: Get.textTheme.bodyText1,
-                        )),
+                  Flexible(
+                    child: Card(
+                      child: Container(
+                          alignment: Alignment.center,
+                          margin: const EdgeInsets.all(5),
+                          child: Text(
+                            "Perturbées : ${dataController.negSum.value} ",
+                            style: Get.textTheme.bodyText1,
+                          )),
+                    ),
                   ),
                 ],
               ),
@@ -84,7 +77,7 @@ class _InfoViewState extends State<InfoView> {
                     alignment: Alignment.center,
                     margin: const EdgeInsets.all(16),
                     child: Text(
-                      "Satisfait : ${dataController.stats.value} ",
+                      "Satisfait : ${dataController.posSum.value} ",
                       style: Get.textTheme.headline3,
                     )),
               ),
@@ -94,7 +87,7 @@ class _InfoViewState extends State<InfoView> {
                     alignment: Alignment.center,
                     margin: const EdgeInsets.all(16),
                     child: Text(
-                      "Non satisfait : ${dataController.nonstats.value} ",
+                      "Non satisfait : ${dataController.negSum.value} ",
                       style: Get.textTheme.headline3,
                     )),
               ),
@@ -116,7 +109,7 @@ class _InfoViewState extends State<InfoView> {
                               ?.copyWith(color: Colors.white),
                         )),
                     Text(
-                      "${((dataController.stats.value / 18) * 100).round()} %",
+                      "${((dataController.posSum.value / (dataController.posSum.value + dataController.negSum.value)) * 100).round()} %",
                       style: Get.textTheme.headline2?.copyWith(color: cGreen),
                     ),
                   ],
