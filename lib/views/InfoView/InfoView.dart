@@ -109,7 +109,7 @@ class _InfoViewState extends State<InfoView> {
                               ?.copyWith(color: Colors.white),
                         )),
                     Text(
-                      "${((dataController.posSum.value / (dataController.posSum.value + dataController.negSum.value)) * 100).round()} %",
+                      "${dataController.getPercentage} %",
                       style: Get.textTheme.headline2?.copyWith(color: cGreen),
                     ),
                   ],

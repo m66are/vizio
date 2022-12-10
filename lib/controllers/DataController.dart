@@ -18,6 +18,10 @@ class DataController extends GetxController {
   RxInt posSum = RxInt(0);
   RxInt negSum = RxInt(0);
 
+  num get getPercentage {
+    return ((posSum.value / (posSum.value + negSum.value)) * 100).round();
+  }
+
   StreamSubscription? subscription;
 
   @override
@@ -31,6 +35,8 @@ class DataController extends GetxController {
         });
       }
     });
+    getPos();
+    getNeg();
     _initStream();
 
     // await _databaseService.getData(nodePath: "/sats/non").then((value) {
@@ -67,6 +73,8 @@ class DataController extends GetxController {
         feelings.clear();
         event.snapshot.value.forEach((key, map) {
           feelings.add(Feeling.fromMap(map, key));
+          getPos();
+          getNeg();
         });
       }
     });
