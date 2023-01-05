@@ -9,12 +9,7 @@ class DataController extends GetxController {
       databaseUrl: "https://vizio-5bff3-default-rtdb.firebaseio.com/");
 
   RxList<Feeling> feelings = RxList.empty();
-  RxInt salle = RxInt(1);
-  RxMap details = RxMap({});
-  RxInt stats = RxInt(0);
-  RxInt nonstats = RxInt(0);
-  RxInt cons = RxInt(0);
-  RxInt noncons = RxInt(0);
+
   RxInt posSum = RxInt(0);
   RxInt negSum = RxInt(0);
 
