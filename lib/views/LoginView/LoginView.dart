@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:reactive_forms/reactive_forms.dart';
+import 'package:sizer/sizer.dart';
 import 'package:vizio/constants/colors.dart';
 import 'package:vizio/controllers/AuthController.dart';
 import 'package:vizio/helpers/context_helper.dart';
@@ -43,6 +44,25 @@ class _LoginViewState extends State<LoginView> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+                    Container(
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.all(10),
+                      child: Text(
+                        "Welcome",
+                        style: Get.textTheme.headline3,
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.all(5),
+                      height: 35.h,
+                      width: 90.w,
+                      child: Image.asset(
+                        "assets/images/second.png",
+                        fit: BoxFit.cover,
+                        alignment: Alignment.center,
+                      ),
+                    ),
                     const Text("Email"),
                     const SizedBox(
                       height: 5,

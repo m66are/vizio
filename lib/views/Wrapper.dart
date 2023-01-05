@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
-import 'package:vizio/constants/colors.dart';
 import 'package:vizio/controllers/AuthController.dart';
 import 'package:vizio/helpers/context_helper.dart';
 import 'package:vizio/routes/routes.dart';
@@ -26,22 +25,28 @@ class _WrapperState extends State<Wrapper> {
   }
 
   void _handleRouting() {
-    if (authController.user.value != null) {
-      // user logged in already //
+    print("Inside handling route");
+    Future.delayed(const Duration(seconds: 2), () {
+      if (authController.user.value != null) {
+        // user logged in already //
 
-      context.nav.pushReplacementNamed(kHomeRoute);
-    } else {
-      context.nav.pushReplacementNamed(kLoginRoute);
-    }
+        context.nav.pushReplacementNamed(kHomeRoute);
+      } else {
+        context.nav.pushReplacementNamed(kLoginRoute);
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
         alignment: Alignment.center,
-        child: const CircularProgressIndicator(
-          color: cGreen,
+        margin: const EdgeInsets.all(45),
+        child: Image.asset(
+          "assets/images/first.jpg",
+          fit: BoxFit.contain,
         ),
       ),
     );
